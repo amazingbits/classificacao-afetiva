@@ -158,10 +158,10 @@ hr {
 
 /* Estilos para o contêiner da tabela */
 .results-container {
-  margin: 20px auto;
-  width: 90%; /* Largura relativa */
+  margin: auto;
+  width: 90vw !important; /* Largura relativa */
+  max-width: 800px;
   max-height: 60vh; /* Altura máxima relativa */
-  padding: 20px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -207,7 +207,7 @@ button {
 /* Media queries para telas menores */
 @media (max-width: 768px) {
   .results-container {
-    width: 95%; /* Aumenta a largura em telas menores */
+    width: 95vw; /* Aumenta a largura em telas menores */
     max-height: 50vh; /* Reduz a altura máxima em telas menores */
   }
 
@@ -217,5 +217,24 @@ button {
 
   th, td {
     padding: 8px; /* Reduz o padding em telas menores */
+  }
+
+  .affective-classification {
+    width: 95vw !important;
+  }
+
+  .word-container {
+    width: 95vw !important;
+    font-size: 2.6rem !important;
+  }
+
+  /* Ajusta o layout dos botões de emoção em telas menores */
+  .emotion-container {
+    flex-direction: column; /* Exibe os botões em colunas */
+  }
+
+  .emotion-container a {
+    width: 100%; /* Faz os botões ocuparem a largura total */
+    margin-bottom: 10px; /* Adiciona espaçamento entre os botões */
   }
 }

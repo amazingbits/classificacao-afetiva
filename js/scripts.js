@@ -344,6 +344,10 @@ async function startTask() {
   
     // Cria o cabeçalho da tabela
     const headerRow = document.createElement("tr");
+    headerRow.style.position = "sticky";
+    headerRow.style.top = "-20px";
+    headerRow.style.zIndex = "1";
+
     const headers = ["Palavra", "Nada emocional/neutra", "Pouco emocional", "Moderadamente emocional", "Muito emocional", "Completamente emocional"];
     headers.forEach(headerText => {
       const header = document.createElement("th");
@@ -399,14 +403,14 @@ async function startTask() {
   
       // Cria o botão "Tela Inicial" fora da tabela
       const restartButton = document.createElement("button");
-      restartButton.textContent = "Tela Inicial";
+      restartButton.innerText = "Tela Inicial";
       restartButton.style.display = "block";
       restartButton.style.margin = "20px auto";
       restartButton.style.padding = "10px 15px";
-      restartButton.style.fontSize = "0.8rem"; // Tamanho da fonte reduzido
+      restartButton.style.fontSize = "18px";
       restartButton.style.border = "none";
-      restartButton.style.backgroundColor = "#6FA3EF";
-      restartButton.style.color = "#ffffff";
+      restartButton.style.background = "#6FA3EF";
+      restartButton.style.color = "white";
       restartButton.style.borderRadius = "5px";
       restartButton.style.cursor = "pointer";
       restartButton.onclick = () => {
