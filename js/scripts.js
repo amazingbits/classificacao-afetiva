@@ -177,9 +177,11 @@ async function startTask() {
   document.body.appendChild(testContainer);
 
   const results = [];
+  let index = 0;
+  let word = selectedLanguageData[index].word;
 
   await showTimer(5);
-  await showWord(0);
+  await showWord(index);
 
   function showTimer(count) {
     return new Promise((resolve) => {
@@ -229,7 +231,7 @@ async function startTask() {
       return;
     }
   
-    const word = words[index].word;
+    word = words[index].word;
 
     testContainer.innerHTML = "";
 
@@ -269,18 +271,35 @@ async function startTask() {
       eContainer.style.alignContent = "center";
       eContainer.style.whiteSpace = "nowrap";
       eContainer.innerText = emotion;
-      eContainer.addEventListener("click", async () => {
-        updateResults(word, emotion);
-        await showWord(index + 1);
-      });
+      eContainer.addEventListener("click", handleClick);
       emotionContainer.appendChild(eContainer);
     });
 
     testContainer.appendChild(emotionContainer);
   }
 
+  async function handleClick(event) {
+    const currentButton = event.target.closest(".emotion");
+    updateResults(word, currentButton.innerText);
+    await wordHighlight(currentButton);
+    index = index + 1;
+    await showWord(index);
+  }
+
   function updateResults(word, emotion) {
     results.push({word, emotion, username: currentUser.username, email: currentUser.email, language});
+  }
+
+  async function wordHighlight(button) {
+    const allButtons = document.querySelectorAll(".emotion");
+    allButtons.forEach(button => {
+      button.removeEventListener("click", handleClick);
+      button.style.opacity = "0.2";
+    });
+    button.style.opacity = "1";
+    button.style.backgroundColor = "#414141";
+    button.style.color = "#FFFFFF";
+    await sleep(2);
   }
 
   async function showResults() {
@@ -421,7 +440,6 @@ async function startTask() {
       testContainer.appendChild(restartButton);
     }
   }
-
 }
 
 function sleep(seconds) {
