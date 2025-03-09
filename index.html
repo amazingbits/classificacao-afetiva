@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emotional Stroop Test</title>
+  <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/fonts.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <!-- JS -->
+  <script defer src="./js/font-awesome.js?ts=" + new Date().getTime()></script>
+  <script defer src="./js/repository.js?ts=" + new Date().getTime()></script>
+  <script defer src="./js/scripts.js?ts=" + new Date().getTime()></script>
+</head>
+<body>
+
+  <main>
+
+    <div class="page-form">
+      <img src="./icon.png" alt="Imagem do desenho de um cérebro humano com multiplas cores separadas por área do cérebro">
+
+      <h1>Classificação Afetiva</h1>
+
+      <hr>
+      
+      <form id="userForm">
+        <div class="input-group">
+          <label for="username">Nome do participante</label>
+          <input type="text" name="username" id="username" autofocus required>
+        </div>
+
+        <div class="input-group">
+          <label for="email">E-mail do participante</label>
+          <input type="email" name="email" id="email" required>
+        </div>
+
+        <div class="input-group">
+          <label for="language">Selecione a linguagem</label>
+          <select name="language" id="language">
+            <option value="pt">Português</option>
+            <option value="en">Inglês</option>
+          </select>
+        </div>
+
+        <input type="submit" value="Iniciar">
+      </form>
+    </div>
+  </main> 
+</body>
+</html>
